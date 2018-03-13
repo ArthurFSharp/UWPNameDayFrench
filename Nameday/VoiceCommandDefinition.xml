@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.2">
+  <CommandSet xml:lang="fr-fr">
+    <AppName>NomDuJour</AppName>
+    <Example>Quel est le nom du jour ?</Example>
+
+    <Command Name="TodaysNamedays">
+      <Example>quel est le nom du jour ?</Example>
+      <ListenFor RequireAppName="ExplicitlySpecified">
+         quel est le {builtin:AppName} [aujourd'hui] ?
+      </ListenFor>
+      <ListenFor RequireAppName="ExplicitlySpecified">
+        qui célèbre son {builtin:AppName} [aujourd'hui] ?
+      </ListenFor>
+      <Feedback>Je vais vous le dire.</Feedback>
+      <Navigate Target="MainPage.xaml" />
+    </Command>
+
+    <Command Name="ReadTodaysNamedays">
+      <Example>Lis les noms du jour</Example>
+      <ListenFor RequireAppName="AfterPhrase">Lis les</ListenFor>
+      <Feedback>C'est partit</Feedback>
+      <VoiceCommandService Target="VoiceCommandService" />
+    </Command>
+  
+  </CommandSet>
+</VoiceCommands>
